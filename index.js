@@ -2,14 +2,15 @@ import express from "express"
 // npm init -y
 // npm i express
 // npm i ejs
+
 let posts = [
-    "I'm so happy today!",
-    "I bought 12 shrimps and they arrived !",
-    "Exam was easy !",
+    {"title" : "happy", "post": "I'm so happy today!"},
+    {"title" : "shrimp", "post": "I bought 12 shrimps and they arrived !"},
+    {"title" : "exam", "post": "Exam was easy !"},
 ];
-for(let i = 0; i < 100; i++){
-    posts.push("I'm so happy today!");
-}
+// let posts = {
+//     ""
+// };
 const app = express();
 const port = 3000;
 app.use(express.static("public"));
@@ -36,7 +37,9 @@ app.post("/deletePost", (req,res)=>{
 })  
 
 app.post("/newPost", (req,res)=>{
-    posts.push(req.body["newPost"]);
+    let newPost = req.body["newPost"];
+    let title = req.body["title"];
+    posts.push({"title" : title, "post": newPost});
     res.render("index.ejs", {name, posts});
 })  
 

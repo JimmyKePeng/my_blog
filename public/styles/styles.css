@@ -1,15 +1,20 @@
 /* https://preview.colorlib.com/#andrea */
-p{
+.p{
     white-space: pre-wrap;
 }
+
 body{
-    font-family: "Poppins", Arial, sans-serif;
+    /* font-family: "Times New Roman", Times, serif; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 .container{
     display: grid;
     height: 80vh;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 1fr 10fr 1fr;
+}
+.text-color{
+    color:rgb(141, 181, 216);
 }
 
 .topCenterText{
@@ -37,6 +42,7 @@ body{
 }
 
 .body-display{
+    padding: 3rem;
     overflow-y: scroll;
     grid-area: 2/2/-1/-2;
     display: flex;
@@ -62,18 +68,20 @@ body{
     /* color: rgb(141, 181, 216); */
 }
 
-.posts-div{
-    display: flex;
-    /* justify-content: center; */
+.single-post{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: center;
     align-items: center;
 }
 
-.post{
+.postDelete{
     background-color: white;
     color: rgb(212, 101, 101);
     border: hidden;
     height: fit-content;
 }
+
 
 .contact{
     padding-top: 3rem;
@@ -82,3 +90,10 @@ body{
     justify-content: center;
 }
 
+#post-button{
+    padding: 10px;
+    border-radius: 25%;
+    border: hidden;
+    color: aliceblue;
+    background-color: rgb(87, 80, 80);
+}

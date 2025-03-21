@@ -1,7 +1,5 @@
 <%- include("partials/header.ejs") %>
 
-
-
 <h1>Hello 
     <% if(locals.name) {%>
     <%= name %>
@@ -16,18 +14,19 @@
     <input type="submit" value="change">
 </form>
 
-<div>
-    <% if(locals.posts) {%>
-    <% for (let i = 0; i < posts.length; i++) {%>
-        <div class="posts-div">
-            <h4> <%= posts[i]%></h4>
-            <form  action="/deletePost" method="post">
-                <input type="hidden" name="index" value="<%= i %>" />
-                <button class="post" type="submit">Delete</button>
-            </form>
-        </div>
-        <% } %>
-    <% }%>
-</div>
+
+<% if(locals.posts) {%>
+<% for (let i = 0; i < posts.length; i++) {%>
+    <div class="single-post">
+        <h4> <%=i+1%>.<%= posts[i]["title"]%></h4>
+        <h4> <%= posts[i]["post"]%></h4>
+        <form  action="/deletePost" method="post">
+            <input type="hidden" name="index" value="<%= i %>" />
+            <button class="postDelete" type="submit">Delete</button>
+        </form>
+    </div>
+    <% } %>
+<% }%>
+
 
 <%- include("partials/footer.ejs") %>
